@@ -13,7 +13,7 @@ Proje sayımız ilerledikçe proje yönetimimizi kolaylaştırmak adına projele
  * İçerisinde ```Spring Web```,  ```Spring Security``` dependency eklenmeli.
  * Maven dependency management sistemini kullanarak tüm dependencyleri install edin.
  * Uygulamanızı  ```9000``` portundan ayağa kaldırın.
- * Bir hayvanat bahçesi için rest api dizayn etmeniz istenmektedir.
+ * JWT token kullanımını tanımak üzerine bir api yazmalıyız.
 
 ### Amaç
  * Amacımız JWT token kullanarak user role ilişkisi işe ulaşabileceğimiz rest apiler tanımlamak.
