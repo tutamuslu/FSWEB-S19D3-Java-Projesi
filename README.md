@@ -38,7 +38,7 @@ Proje sayımız ilerledikçe proje yönetimimizi kolaylaştırmak adına projele
 
  ### Görev 3
  * ```controller``` paketi altında ```StudentController``` adında 1 tane controller yazmalısınız.
- * BurgerService sınıfını BurgerController sınıfı altında ```Dependency Injection``` yöntemini kullanarak çağırınız.
+ * StudentService sınıfını StudentController sınıfı altında ```Dependency Injection``` yöntemini kullanarak çağırınız.
  * Amacımız CRUD işlemlerini tanımlayan endpointler yazmak.
  * [GET]/workintech/students/ => tüm burger listini dönmeli.
  * [GET]/workintech/students/{id} => İlgili id deki burger objesini dönmeli.
