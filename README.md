@@ -23,12 +23,12 @@ Proje sayımız ilerledikçe proje yönetimimizi kolaylaştırmak adına projele
  ### Görev 1
  * main metodunuzun olduğu paket altında ```config```, ```controller```, ```entity```, ```dao```, ```service``` isminde 5 adet daha paket oluşturunuz.
  * Project Lombok'u dependency olarak uygulamanıza ekleyin.
- * ```entity``` paketinin altına ```User``` adında bir sınıf tanımlayınız. İçerisinde instance variable olarak ```id, firstName, lastName, email, password, role``` isminde 6 tane değişken oluşturun.
+ * ```entity``` paketinin altına ```Member``` adında bir sınıf tanımlayınız. İçerisinde instance variable olarak ```id, firstName, lastName, email, password``` isminde 5 tane değişken oluşturun.
+ * ```entity``` paketinin altına JDBCAuthentication için ```Role``` adında bir sınıf oluşturunuz içerisine ```id, authority``` adında 2 field ekleyiniz. Member ve Role arasında many-to-many bir ilişki tanımlamalısınız.
  * ```Role``` enum tipinde olmalı. ```USER ve ADMIN``` değerlerini alır.
  * ```Student``` isminde bir sınıf yazınız. ```id, tckn, firstName, lastName``` değerleri olmalı.
  * Lombok ve JPA annotation larını uygulayarak bütün sınıfı bir veritabanı tablosu olucak şekilde işaretleyiniz.
  * ```application.properties``` dosyanızı kullanarak veritabanı bağlantınızı kurun.
- * ```spring.jpa.hibernate.ddl-auto``` opsiyonu ile ilk başta tablonuzu create edin. Daha sonra bu opsiyonu değiştirerek tablolardaki verilerin silinmesini önleyin.
  * Spring uygulamasının veritabanı loglarını açarak veritabanına yolladığınız her sorguyu inceleyin.
 
 ### Görev 2
