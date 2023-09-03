@@ -21,7 +21,7 @@ Proje sayımız ilerledikçe proje yönetimimizi kolaylaştırmak adına projele
  * JWT token ile role tabanlı authentication ve authorization işlemlerin nasıl yapıldığını anlamalıyız.
  
  ### Görev 1
- * main metodunuzun olduğu paket altında ```controller```, ```entity```, ```dao```, ```service``` isminde 5 adet daha paket oluşturunuz.
+ * main metodunuzun olduğu paket altında ```config```, ```controller```, ```entity```, ```dao```, ```service``` isminde 5 adet daha paket oluşturunuz.
  * Project Lombok'u dependency olarak uygulamanıza ekleyin.
  * ```entity``` paketinin altına ```User``` adında bir sınıf tanımlayınız. İçerisinde instance variable olarak ```id, firstName, lastName, email, password, role``` isminde 6 tane değişken oluşturun.
  * ```Role``` enum tipinde olmalı. ```USER ve ADMIN``` değerlerini alır.
