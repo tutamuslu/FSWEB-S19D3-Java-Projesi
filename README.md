@@ -1,5 +1,4 @@
-# JWT AUTHENTICATION
-Authentication &amp; Authorization with JWT token
+#  Java Spring REST API
 
 ### Proje Kurulumu
 
@@ -8,42 +7,54 @@ Daha sonra projeyi IntellijIDEA kullanarak açınız. README.md dosyasını dikk
 Proje sayımız ilerledikçe proje yönetimimizi kolaylaştırmak adına projelerimizi belli klasör kalıplarında saklamak işimizi kolaylaştırmak adına iyi bir alışkanlıktır.
 Örnek bir Lokasyon: Workintech/Sprint_1/Etud.
 
+### Hedeflerimiz:
+
+### Secure Rest Api
+
  ### Başlangıç
  * Spring Initializr kullanarak bir Spring Boot projesi oluşturun.
- * İçerisinde ```Spring Web```,  ```Spring Security``` dependency eklenmeli.
+ * İçerisinde ```Spring Web```, ```Spring Boot Security``` dependency eklenmeli.
  * Maven dependency management sistemini kullanarak tüm dependencyleri install edin.
  * Uygulamanızı  ```9000``` portundan ayağa kaldırın.
- * JWT token kullanımını tanımak üzerine bir api yazmalıyız.
+ * Bir banka için rest api dizayn etmeniz istenmektedir.
 
 ### Amaç
- * Amacımız JWT token kullanarak user role ilişkisi işe ulaşabileceğimiz rest apiler tanımlamak.
- * JWT token oluşturan ve validasyonu yapan kodu siz hazırlamalısınız.
- * JWT token ile role tabanlı authentication ve authorization işlemlerin nasıl yapıldığını anlamalıyız.
+ * Spring Boot Security ile yapılabilen security türlerini tanımak ve uygulamak
  
  ### Görev 1
- * main metodunuzun olduğu paket altında ```config```, ```controller```, ```entity```, ```dao```, ```service``` isminde 5 adet daha paket oluşturunuz.
+ * main metodunuzun olduğu paket altında ```controller```, ```config```, ```entity```, ```dao```, ```service``` isminde 5 adet daha paket oluşturunuz.
  * Project Lombok'u dependency olarak uygulamanıza ekleyin.
- * ```entity``` paketinin altına ```Member``` adında bir sınıf tanımlayınız. İçerisinde instance variable olarak ```id, firstName, lastName, email, password``` isminde 5 tane değişken oluşturun.
- * ```entity``` paketinin altına JDBCAuthentication için ```Role``` adında bir sınıf oluşturunuz içerisine ```id, authority``` adında 2 field ekleyiniz. Member ve Role arasında many-to-many bir ilişki tanımlamalısınız.
- * ```Role``` enum tipinde olmalı. ```USER ve ADMIN``` değerlerini alır.
- * ```Student``` isminde bir sınıf yazınız. ```id, tckn, firstName, lastName``` değerleri olmalı.
+ * ```entity``` paketinin altına JDBCAuthentication için ```Member``` adında bir sınıf tanımlayınız. İçerisinde instance variable olarak ```id, email, password``` isminde 3 tane değişken oluşturun.
+ * ```entity``` paketinin altına JDBCAuthentication için ```Role``` adında bir sınıf oluşturunuz içerisine ```id, authority``` adında 2 field ekleyiniz.
+ * Member ve Role arasında many-to-many bir ilişki tanımlamalısınız.
+ * ```entity``` paketinin altına JDBCAuthentication için ```Account``` adında bir sınıf tanımlayınız. İçerisinde instance variable olarak ```id, name``` isminde 2 tane değişken oluşturun.
+ * ```dao``` paketinin altına ```MemberRepository``` adinda bir interface tanımlayınız. İçerisinde emaile göre kullanıcıları almalı.
  * Lombok ve JPA annotation larını uygulayarak bütün sınıfı bir veritabanı tablosu olucak şekilde işaretleyiniz.
  * ```application.properties``` dosyanızı kullanarak veritabanı bağlantınızı kurun.
  * Spring uygulamasının veritabanı loglarını açarak veritabanına yolladığınız her sorguyu inceleyin.
 
 ### Görev 2
  * Service ve Dao paketi katmanlarını yazmalısınız. 
- * Student objesi MVC kurallarına uygun olarak veritabanı işlemlerini yapabilmeli.
+ * Account objesi MVC kurallarına uygun olarak veritabanı işlemlerini yapabilmeli.
  * CRUD işlemlerini Service katmanı karşılayabilmeli
 
  ### Görev 3
- * ```controller``` paketi altında ```StudentController``` adında 1 tane controller yazmalısınız.
- * StudentService sınıfını StudentController sınıfı altında ```Dependency Injection``` yöntemini kullanarak çağırınız.
+ * ```controller``` paketi altında ```AccountController, AuthController``` adında 2 tane controller yazmalısınız.
+ * AccountService sınıfını AccountController sınıfı altında ```Dependency Injection``` yöntemini kullanarak çağırınız.
+ * İlk olarak Member kaydebilmek için [POST]/workintech/auth/register şeklinde bir endpoint tanımlayın ve buradan bir adet user rolünde bir adet admin rolünde kullanıcı tanımlayın.
  * Amacımız CRUD işlemlerini tanımlayan endpointler yazmak.
- * [GET]/workintech/students/ => tüm burger listini dönmeli.
- * [GET]/workintech/students/{id} => İlgili id deki burger objesini dönmeli.
- * [POST]/workintech/students => Bir adet burger objesini veritabanına kaydeder.
- * [PUT]/workintech/students/{id} => İlgili id deki burger objesinin değerlerini yeni gelen data ile değiştirir.
- * [DELETE]/workintech/students/{id} => İlgili id değerindeki burger objesini veritabanından siler.
- * role değeri USER olan kullanıcılar sadece [GET] requesti atabilirler.
- * role değeri ADMIN olan kullanıcılar [GET][POST][PUT][DELETE] requestlerinin tamamını atabilirler.
+ * [GET]/workintech/accounts/ => tüm account listini dönmeli.
+ * [GET]/workintech/accounts/{id} => İlgili id deki account objesini dönmeli. 
+ * [POST]/workintech/accounts => Bir adet account objesini veritabanına kaydeder.
+ * [PUT]/workintech/accounts/{id} => İlgili id deki account objesinin değerlerini yeni gelen data ile değiştirir.
+ * [DELETE]/workintech/accounts/{id} => İlgili id değerindeki account objesini veritabanından siler.
+ 
+
+### Görev 4
+ * ```application.properties``` dosyasına kendi kullanıcı isminizi ve şifrenizi giriniz.
+ * Basic auth yöntemini kullanarak sistemdeki tüm endpointlere ulaşmayı deneyiniz.
+ * JDBCAuthentication yöntemi ile  tüm endpointlere ulaşmayı deneyiniz. 
+ * [POST]/workintech/auth/register => member tablosunda yeni bir kullanıcı oluşturmalı.
+ * [GET] requestlerine ```user ve admin``` rolündeki kullanıcılar request atabilmeli.
+ * [POST], [PUT], [DELETE] requestlerine sadece ```admin``` rolündeki kullanıcılar request atabilir.
+ * OAuth2 yöntemini kullanarak Github ile uygulamanızdaki [GET]endpointlerine ulaşmayı deneyiniz.
